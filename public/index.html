@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet</title>
-    <style>
-        #map {
-            height: 600px;
-            background-color: #ccc;
-        }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Leaflet</title>
+        
+        <!-- My External JS Leaflet file -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        
+        <!-- My JS file -->
+        <script src="app.js" defer></script>
+        
+        <!-- External JS Leaflet file -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        
+        <style>
+            #map { 
+                height: 600px;
+                background-color: #ccc;
+            }
+            .leaflet-popup-content-wrapper {
+                width: 100%;
+            }
+        </style>
     </head>
-<body>
-    <div id="map"></div>
-</body>
+    
+    <body>
+        <form id="business-list">
+            <select name= "businesses" id="business-selections" onchange="userCoord()">
+                <option class='business' value="null">Your Location</option>
+                <option class='business' value="coffee">Coffee</option>
+                <option class='business' value="restaurant">Restaurants</option>
+                <option class='business' value="hotel">Hotels</option>
+                <option class='business' value="market">Markets</option>
+            </select>
+            <!-- <button class="go-btn">Go</button> -->
+        </form>    
+        <br>
+        <div id="map"></div>
+    </body>
 </html>
-
-<!-- Note: You do NOT need to create an external JS file for this project despite any instructions you may see in Canvas. The file app.js that's included in the starter code is the only external JS file you need. -->
